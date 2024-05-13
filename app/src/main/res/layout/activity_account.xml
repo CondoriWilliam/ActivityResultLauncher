@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background"
+    android:gravity="center"
+    android:padding="40dp"
+    tools:context=".AccountActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/icon_person" />
+
+        <EditText
+            android:id="@+id/editUsernameAccount"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="13dp"
+            android:inputType="text"
+            android:ems="10"
+            android:drawableEnd="@drawable/icon_user"
+            android:hint="Username"/>
+
+        <EditText
+            android:id="@+id/editFirstName"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="13dp"
+            android:inputType="text"
+            android:ems="10"
+            android:drawableEnd="@drawable/icon_user"
+            android:hint="Name"/>
+
+        <EditText
+            android:id="@+id/editLastName"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="13dp"
+            android:inputType="text"
+            android:ems="10"
+            android:drawableEnd="@drawable/icon_user"
+            android:hint="Surname"/>
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="13dp"
+            android:inputType="textEmailAddress"
+            android:hint="Email"
+            android:drawableEnd="@drawable/icon_email"
+            android:textColorHint="@color/white" />
+
+        <EditText
+            android:id="@+id/editTextPasswordAccount"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="13dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:drawableEnd="@drawable/icon_password"
+            android:textColorHint="@color/white" />
+
+        <EditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="13dp"
+            android:inputType="phone"
+            android:hint="Phone"
+            android:drawableEnd="@drawable/icon_phone"
+            android:textColorHint="@color/white" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:text="I agree to the terms and conditions"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_margin="10dp">
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CREATE ACCOUNT"
+                android:layout_marginRight="5dp"
+                android:textSize="15dp"
+                android:background="@drawable/rounded_corner"/>
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CANCEL"
+                android:textSize="15dp"
+                android:background="@drawable/rounded_corner"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
