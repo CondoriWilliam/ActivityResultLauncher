@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResult;
@@ -21,9 +22,11 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.gson.Gson;
 
 public class HomeActivity extends AppCompatActivity {
-
-    private TextView editUsername;
-
+    private TextView editUsernameHome;
+    private TextView editFirstNameHome;
+    private TextView editLastNameHome;
+    private TextView editEmailHome;
+    private TextView editPhoneHome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,9 +38,29 @@ public class HomeActivity extends AppCompatActivity {
             return insets;
         });
 
-        editUsername = findViewById(R.id.editUsernameHome);
-        String username = getIntent().getStringExtra("username");
-        editUsername.setText("¡Hola, " + username + "!");
+        editUsernameHome = findViewById(R.id.editUsernameHome);
+        editFirstNameHome = findViewById(R.id.editFirstNameHome);
+        editLastNameHome = findViewById(R.id.editLastNameHome);
+        editEmailHome = findViewById(R.id.editEmailHome);
+        editPhoneHome = findViewById(R.id.editPhoneHome);
+        printUser();
+    }
+    private void printUser(){
+        Intent intent = getIntent();
+        String jsonString = intent.getStringExtra("ACCOUNT");
+        Gson gson = new Gson();
+        AccountEntity user = gson.fromJson(jsonString, AccountEntity.class);
 
+        String username = user.getUsername();
+        String firstname = "Name: " + user.getFirstname();
+        String lastname = "Last name: " + user.getLastname();
+        String email = "Email: " + user.getEmail();
+        String phone = "Phone: " + user.getPhone();
+
+        editUsernameHome.setText(username);
+        editFirstNameHome.setText(firstname);
+        editLastNameHome.setText(lastname);
+        editEmailHome.setText(email);
+        editPhoneHome.setText(phone);
     }
 }

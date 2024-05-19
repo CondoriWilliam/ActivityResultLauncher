@@ -20,9 +20,15 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.gson.Gson;
 
 public class AccountActivity extends AppCompatActivity {
-
-   private Button btnRegister;
-   private Button btnCancel;
+   public final static String ACCOUNT_RECORD = "ACCOUNT_RECORD";
+   public final static Integer ACCOUNT_ACCEPT = 100;
+   public final static Integer ACCOUNT_CANCEL = 200;
+   private Button btnCreateAccount;
+   private Button btnCancelAccount;
+   private EditText editFirstNameAccount;
+   private EditText editLastNameAccount;
+   private EditText editEmailAddressAccount;
+   private EditText editPhoneAccount;
    private EditText editUserNameAccount;
    private EditText editPasswordAccount;
 
@@ -36,33 +42,45 @@ public class AccountActivity extends AppCompatActivity {
          return insets;
       });
 
-      btnRegister = findViewById(R.id.btnRegister);
-      btnCancel = findViewById(R.id.btnCancel);
+      editFirstNameAccount = findViewById(R.id.editFirstNameAccount);
+      editLastNameAccount = findViewById(R.id.editLastNameAccount);
+      editEmailAddressAccount = findViewById(R.id.editEmailAddressAccount);
+      editPhoneAccount = findViewById(R.id.editPhoneAccount);
+      editPasswordAccount = findViewById(R.id.editPasswordAccount);
       editUserNameAccount = findViewById(R.id.editUsernameAccount);
-      editPasswordAccount = findViewById(R.id.editTextPasswordAccount);
 
-      btnRegister.setOnClickListener(new View.OnClickListener() {
+      btnCreateAccount = findViewById(R.id.btnCreateAccount);
+      btnCancelAccount = findViewById(R.id.btnCancelAccount);
+
+      btnCreateAccount.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
 
             AccountEntity accountEntity = new AccountEntity();
+
+            accountEntity.setFirstname(editFirstNameAccount.getText().toString());
+            accountEntity.setLastname(editLastNameAccount.getText().toString());
+            accountEntity.setEmail(editEmailAddressAccount.getText().toString());
+            accountEntity.setPhone(editPhoneAccount.getText().toString());
             accountEntity.setUsername(editUserNameAccount.getText().toString());
             accountEntity.setPassword(editPasswordAccount.getText().toString());
 
-            Gson gson = new Gson();
-            String json = gson.toJson(accountEntity);
             Intent data = new Intent();
+            Gson gson = new Gson();
+            String accountJson = gson.toJson(accountEntity);
+            data.putExtra(ACCOUNT_RECORD,accountJson);
 
-            data.putExtra("account",json);
-            setResult(RESULT_OK, data);
-
+            setResult(ACCOUNT_ACCEPT, data);
             finish();
          }
       });
 
-      btnCancel.setOnClickListener(v -> {
-         Intent CancelAccount = new Intent(getApplicationContext(), LoginActivity.class);
-         startActivity(CancelAccount);
+      btnCancelAccount.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+            setResult(ACCOUNT_CANCEL);
+            finish();
+         }
       });
    }
 }
